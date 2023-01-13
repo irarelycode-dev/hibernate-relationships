@@ -16,6 +16,17 @@ public class InstructorDetail {
 
 	@Column(name = "hobby")
 	private String hobby;
+	
+	@OneToOne(mappedBy="instructor_detail_id")
+	private Instructor instructor;
+
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
 
 	public InstructorDetail() {
 	}
