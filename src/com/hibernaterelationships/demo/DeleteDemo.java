@@ -15,7 +15,7 @@ public class DeleteDemo {
 
 		try {
 			session.beginTransaction();
-			int id = 1;
+			int id = 3;
 			Instructor tmpInstructor = session.get(Instructor.class, id);
 			System.out.println("Found Instructor:" + tmpInstructor);
 			if (tmpInstructor != null) {

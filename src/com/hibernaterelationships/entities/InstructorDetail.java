@@ -16,8 +16,8 @@ public class InstructorDetail {
 
 	@Column(name = "hobby")
 	private String hobby;
-	
-	@OneToOne(mappedBy="instructor_detail_id")
+
+	@OneToOne(mappedBy = "instructorDetail", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Instructor instructor;
 
 	public Instructor getInstructor() {
