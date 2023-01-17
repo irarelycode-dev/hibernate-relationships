@@ -15,16 +15,20 @@ public class DeleteDemo {
 
 		try {
 			session.beginTransaction();
-			int id = 3;
+			int id = 5;
 			Instructor tmpInstructor = session.get(Instructor.class, id);
 			System.out.println("Found Instructor:" + tmpInstructor);
 			if (tmpInstructor != null) {
 				System.out.print("Deleting:" + tmpInstructor);
+				tmpInstructor.setInstructorDetail(null);
+
+				session.flush();
+				session.refresh(tmpInstructor);
 				session.delete(tmpInstructor);
 			}
 			session.getTransaction().commit();
 		} catch (Exception e) {
-
+			System.out.print("Error:" + e);
 		}
 
 	}
